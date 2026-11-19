@@ -1,0 +1,48 @@
+{
+  "recipe": "version45",
+  "model": {
+    "backbone_weights": null
+  },
+  "training": {
+    "epochs": 100,
+    "batch_size": 2,
+    "num_workers": 8,
+    "lr": 1e-05,
+    "weight_decay": 0.1,
+    "val_check_interval": 3000
+  },
+  "train_data": {
+    "dataset": "nyu",
+    "root": "path/to/your/nyu/sync",
+    "split": "splits/nyu_train.txt",
+    "depth_factor": 1000.0,
+    "size": [
+      384,
+      384
+    ],
+    "relative_depth_source": "gt",
+    "random_range": true,
+    "range_jitter": 0.2
+  },
+  "val_data": {
+    "dataset": "sun",
+    "root": "path/to/your/SUNRGBD",
+    "split": "splits/sun.txt",
+    "albedo_root": "path/to/your/sun_albedo",
+    "relative_depth_source": "marigold",
+    "relative_depth_root": "path/to/your/sun_relative_depth"
+  },
+  "validation": {
+    "max_depth": 10.0,
+    "crop": "eigen"
+  },
+  "synthesis": {
+    "bank": "assets/stripes.npy",
+    "k0": 1200.0,
+    "gamma": 0.45,
+    "fx": 585.0,
+    "fy": 585.0,
+    "cx": 324.5,
+    "cy": 253.7
+  }
+}

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+runs/
+.pytest_cache/
+
+# Large assets (provided separately)
+checkpoints/*.pt
+assets/stripes.npy
+*.part

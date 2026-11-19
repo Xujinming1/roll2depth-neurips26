@@ -1,0 +1,24 @@
+{
+  "data": {
+    "dataset": "ibims",
+    "root": "path/to/your/ibims",
+    "split": "splits/ibims.txt",
+    "albedo_root": "path/to/your/ibims_albedo",
+    "relative_depth_source": "marigold",
+    "relative_depth_root": "path/to/your/ibims_relative_depth"
+  },
+  "synthesis": {
+    "bank": "assets/stripes.npy",
+    "k0": 1200.0,
+    "gamma": 0.45,
+    "fx": 585.0,
+    "fy": 585.0,
+    "cx": 324.5,
+    "cy": 253.7
+  },
+  "evaluation": {
+    "max_depth": 10.0,
+    "crop": "eigen"
+  },
+  "num_workers": 8
+}
