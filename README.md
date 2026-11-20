@@ -21,21 +21,26 @@ installation, use the matching command from the
 
 ## Model assets
 
-The following large files are not included in this repository. Place them at the
-paths below before running the corresponding commands:
+The compact stripe bank is included at `assets/stripes.npy` (15,000 templates,
+57.6 MB). The model checkpoint is provided separately and is not included in this
+repository. Place it at the following path before running the demo or evaluation:
 
-| File path | Size | Required for |
-|---|---|---|
-| `checkpoints/roll2depth_v45.pt` | 1.22 GB | Demo, evaluation, and fine-tuning the supplied model |
-| `assets/stripes.npy` | 115 MB | Training and evaluation stripe synthesis |
+| File path | Size |
+|---|---|
+| `checkpoints/roll2depth_v45.pt` | 1.22 GB |
 
 ```bash
-mkdir -p checkpoints assets
+mkdir -p checkpoints
 ```
 
-The demo uses its prepared stripe cue and does not need `assets/stripes.npy`.
-Training from scratch uses DINOv2 initialization and does not require the final
-Roll2Depth checkpoint. Download links for the two large files are not available yet.
+A checkpoint download link is not available yet. Training from scratch uses
+DINOv2 initialization and does not require the final Roll2Depth checkpoint.
+
+The compact bank contains the first 15,000 of the original 30,000 templates.
+It changes template assignment and can change training and evaluation results.
+For exact reproduction of the paper configuration, use the full 30,000-template
+bank via `synthesis.bank` in the configuration. The demo uses its prepared stripe
+cue and is unaffected by the bank size.
 
 ## Quick demo
 
@@ -140,5 +145,5 @@ python tools/generate_stripes.py --output assets/custom_stripes.npy --count 1000
 ```
 
 Set `synthesis.bank` in the relevant configuration to use a custom bank.
-Keep the supplied bank for the paper configuration. Run a script with `--help`
+Use the full bank for the paper configuration. Run a script with `--help`
 to see its available options.

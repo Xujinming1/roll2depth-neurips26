@@ -5,5 +5,4 @@ runs/
 
 # Large assets (provided separately)
 checkpoints/*.pt
-assets/stripes.npy
 *.part
